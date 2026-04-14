@@ -69,7 +69,8 @@ public class ProfileController {
 
                 Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
-                existingUser.setProfileImage("http://localhost:8080/uploads/" + safeFileName);
+//                existingUser.setProfileImage("http://localhost:8080/uploads/" + safeFileName);
+                existingUser.setProfileImage("https://spring-backend-production-c339.up.railway.app/uploads/" + safeFileName);
 
             } catch (IOException e) {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
