@@ -17,7 +17,8 @@ public class ProfileService {
     private final UserRepository userRepository;
 
     // 🔥 Upload folder
-    private final String uploadDir = "uploads/";
+//    private final String uploadDir = "uploads/";
+    private final String uploadDir = System.getProperty("user.dir") + "/uploads/";
 
     public ProfileService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -77,7 +78,8 @@ public class ProfileService {
                 Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
                 // save URL in DB
-                user.setProfileImage("http://localhost:8080/uploads/" + fileName);
+//                user.setProfileImage("http://localhost:8080/uploads/" + fileName);
+                user.setProfileImage("https://spring-backend-production-c339.up.railway.app/uploads/" + fileName);
 
             } catch (IOException e) {
                 throw new RuntimeException("Image upload failed");
